@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.18.1",
-    "hono": "^4.8.12"
+    "hono": "^4.8.12",
+    "llamaindex": "^0.11.25"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
