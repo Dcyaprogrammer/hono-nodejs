@@ -8,6 +8,9 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.18.1",
+    "@llamaindex/openai": "^0.4.14",
+    "@llamaindex/workflow": "^1.1.20",
+    "dotenv": "^17.2.1",
     "hono": "^4.8.12",
     "llamaindex": "^0.11.25"
   },

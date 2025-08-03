@@ -1,26 +1,29 @@
-import { serve } from '@hono/node-server'
+import 'dotenv/config'
+import { serve, type HttpBindings } from '@hono/node-server'
 import { Hono } from 'hono'
 
-const app = new Hono()
+type Bindings = HttpBindings & {
+  /* ... */
+}
+
+const app = new Hono<{Bindings: Bindings}>()
 
 app.get('/', (c) => {
-  return c.text('Hello Node.js!')
-})
-
-const server = serve(app)
-
-//graceful shutdown
-process.on('SIGINT', () => {
-  server.close()
-  process.exit(0)
-})
-
-process.on('SIGTERM', () => {
-  server.close((err) => {
-    if (err){
-      console.error(err)
-      process.exit(1)
-    }
-    process.exit(0)
+  return c.json({
+    remoteAddress: c.env.incoming.socket.remoteAddress,
+    message: 'Hello from LlamaIndex server!',
+    env: process.env.NODE_ENV
   })
 })
+
+// Add a route to test if API keys are loaded
+app.get('/env-test', (c) => {
+  return c.json({
+    hasOpenAIKey: !!process.env.OPENAI_API_KEY,
+    hasAnthropicKey: !!process.env.ANTHROPIC_API_KEY,
+    nodeEnv: process.env.NODE_ENV
+  })
+})
+
+serve(app)
+
