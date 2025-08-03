@@ -8,11 +8,15 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.18.1",
+    "@llamaindex/core": "^0.6.19",
+    "@llamaindex/deepseek": "^0.0.31",
     "@llamaindex/openai": "^0.4.14",
     "@llamaindex/workflow": "^1.1.20",
     "dotenv": "^17.2.1",
     "hono": "^4.8.12",
-    "llamaindex": "^0.11.25"
+    "llamaindex": "^0.11.25",
+    "node-domexception": "1.0.0",
+    "zod": "^4.0.14"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",

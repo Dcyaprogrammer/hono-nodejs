@@ -11,12 +11,18 @@ importers:
       '@hono/node-server':
         specifier: ^1.18.1
         version: 1.18.1(hono@4.8.12)
+      '@llamaindex/core':
+        specifier: ^0.6.19
+        version: 0.6.19
+      '@llamaindex/deepseek':
+        specifier: ^0.0.31
+        version: 0.0.31(@llamaindex/core@0.6.19)(zod@4.0.14)
       '@llamaindex/openai':
         specifier: ^0.4.14
-        version: 0.4.14(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(zod@3.25.76)
+        version: 0.4.14(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(zod@4.0.14)
       '@llamaindex/workflow':
         specifier: ^1.1.20
-        version: 1.1.20(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(hono@4.8.12)(p-retry@6.2.1)(zod-to-json-schema@3.24.6(zod@3.25.76))(zod@3.25.76)
+        version: 1.1.20(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(hono@4.8.12)(p-retry@6.2.1)(zod-to-json-schema@3.24.6(zod@4.0.14))(zod@4.0.14)
       dotenv:
         specifier: ^17.2.1
         version: 17.2.1
@@ -25,7 +31,13 @@ importers:
         version: 4.8.12
       llamaindex:
         specifier: ^0.11.25
-        version: 0.11.25(@llama-flow/core@0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@3.25.76))(hono@4.8.12)(p-retry@6.2.1)(tree-sitter@0.22.4)(web-tree-sitter@0.24.7)(zod-to-json-schema@3.24.6(zod@3.25.76))(zod@3.25.76)
+        version: 0.11.25(@llama-flow/core@0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@4.0.14))(hono@4.8.12)(p-retry@6.2.1)(tree-sitter@0.22.4)(web-tree-sitter@0.24.7)(zod-to-json-schema@3.24.6(zod@4.0.14))(zod@4.0.14)
+      node-domexception:
+        specifier: 1.0.0
+        version: 1.0.0
+      zod:
+        specifier: ^4.0.14
+        version: 4.0.14
     devDependencies:
       '@types/node':
         specifier: ^20.11.17
@@ -244,6 +256,9 @@ packages:
 
   '@llamaindex/core@0.6.19':
     resolution: {integrity: sha512-TkVnhYRah95bRySo2kSgZIRhqO54fbmppHZI7BBU7RFptKquLe9lASHamjM5cPwlmL1XHZ2cTEof+eRDuGahbQ==}
+
+  '@llamaindex/deepseek@0.0.31':
+    resolution: {integrity: sha512-uqQWFGG/Y3Mhcwu7WCmhiW3nj0X+BT+OGQGYiGu6pXx4sgFfzFUI2KklesZj9aCh9dNXYV+iKjiHFZObSmaOig==}
 
   '@llamaindex/env@0.1.30':
     resolution: {integrity: sha512-y6kutMcCevzbmexUgz+HXf7KiZemzAoFEYSjAILfR+cG6FmYSF8XvLbGOB34Kx8mlRi7EI8rZXpezJ5qCqOyZg==}
@@ -619,6 +634,9 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
+  zod@4.0.14:
+    resolution: {integrity: sha512-nGFJTnJN6cM2v9kXL+SOBq3AtjQby3Mv5ySGFof5UGRHrRioSJ5iG680cYNjE/yWk671nROcpPj4hAS8nyLhSw==}
+
 snapshots:
 
   '@aws-crypto/sha256-js@5.2.0':
@@ -720,15 +738,15 @@ snapshots:
     dependencies:
       hono: 4.8.12
 
-  '@llama-flow/core@0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@3.25.76)':
+  '@llama-flow/core@0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@4.0.14)':
     optionalDependencies:
       hono: 4.8.12
       p-retry: 6.2.1
-      zod: 3.25.76
+      zod: 4.0.14
 
-  '@llamaindex/cloud@4.1.0(@llama-flow/core@0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@3.25.76))(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)':
+  '@llamaindex/cloud@4.1.0(@llama-flow/core@0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@4.0.14))(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)':
     dependencies:
-      '@llama-flow/core': 0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@3.25.76)
+      '@llama-flow/core': 0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@4.0.14)
       '@llamaindex/core': 0.6.19
       '@llamaindex/env': 0.1.30
       p-retry: 6.2.1
@@ -745,6 +763,18 @@ snapshots:
       - '@huggingface/transformers'
       - gpt-tokenizer
 
+  '@llamaindex/deepseek@0.0.31(@llamaindex/core@0.6.19)(zod@4.0.14)':
+    dependencies:
+      '@llamaindex/env': 0.1.30
+      '@llamaindex/openai': 0.4.14(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(zod@4.0.14)
+    transitivePeerDependencies:
+      - '@huggingface/transformers'
+      - '@llamaindex/core'
+      - encoding
+      - gpt-tokenizer
+      - ws
+      - zod
+
   '@llamaindex/env@0.1.30':
     dependencies:
       '@aws-crypto/sha256-js': 5.2.0
@@ -759,29 +789,29 @@ snapshots:
       tree-sitter: 0.22.4
       web-tree-sitter: 0.24.7
 
-  '@llamaindex/openai@0.4.14(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(zod@3.25.76)':
+  '@llamaindex/openai@0.4.14(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(zod@4.0.14)':
     dependencies:
       '@llamaindex/core': 0.6.19
       '@llamaindex/env': 0.1.30
-      openai: 4.104.0(zod@3.25.76)
+      openai: 4.104.0(zod@4.0.14)
     transitivePeerDependencies:
       - encoding
       - ws
       - zod
 
-  '@llamaindex/workflow-core@1.2.0(hono@4.8.12)(p-retry@6.2.1)(zod@3.25.76)':
+  '@llamaindex/workflow-core@1.2.0(hono@4.8.12)(p-retry@6.2.1)(zod@4.0.14)':
     optionalDependencies:
       hono: 4.8.12
       p-retry: 6.2.1
-      zod: 3.25.76
+      zod: 4.0.14
 
-  '@llamaindex/workflow@1.1.20(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(hono@4.8.12)(p-retry@6.2.1)(zod-to-json-schema@3.24.6(zod@3.25.76))(zod@3.25.76)':
+  '@llamaindex/workflow@1.1.20(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(hono@4.8.12)(p-retry@6.2.1)(zod-to-json-schema@3.24.6(zod@4.0.14))(zod@4.0.14)':
     dependencies:
       '@llamaindex/core': 0.6.19
       '@llamaindex/env': 0.1.30
-      '@llamaindex/workflow-core': 1.2.0(hono@4.8.12)(p-retry@6.2.1)(zod@3.25.76)
-      zod: 3.25.76
-      zod-to-json-schema: 3.24.6(zod@3.25.76)
+      '@llamaindex/workflow-core': 1.2.0(hono@4.8.12)(p-retry@6.2.1)(zod@4.0.14)
+      zod: 4.0.14
+      zod-to-json-schema: 3.24.6(zod@4.0.14)
     transitivePeerDependencies:
       - '@modelcontextprotocol/sdk'
       - hono
@@ -1015,13 +1045,13 @@ snapshots:
 
   leac@0.6.0: {}
 
-  llamaindex@0.11.25(@llama-flow/core@0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@3.25.76))(hono@4.8.12)(p-retry@6.2.1)(tree-sitter@0.22.4)(web-tree-sitter@0.24.7)(zod-to-json-schema@3.24.6(zod@3.25.76))(zod@3.25.76):
+  llamaindex@0.11.25(@llama-flow/core@0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@4.0.14))(hono@4.8.12)(p-retry@6.2.1)(tree-sitter@0.22.4)(web-tree-sitter@0.24.7)(zod-to-json-schema@3.24.6(zod@4.0.14))(zod@4.0.14):
     dependencies:
-      '@llamaindex/cloud': 4.1.0(@llama-flow/core@0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@3.25.76))(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)
+      '@llamaindex/cloud': 4.1.0(@llama-flow/core@0.4.4(hono@4.8.12)(p-retry@6.2.1)(zod@4.0.14))(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)
       '@llamaindex/core': 0.6.19
       '@llamaindex/env': 0.1.30
       '@llamaindex/node-parser': 2.0.19(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(tree-sitter@0.22.4)(web-tree-sitter@0.24.7)
-      '@llamaindex/workflow': 1.1.20(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(hono@4.8.12)(p-retry@6.2.1)(zod-to-json-schema@3.24.6(zod@3.25.76))(zod@3.25.76)
+      '@llamaindex/workflow': 1.1.20(@llamaindex/core@0.6.19)(@llamaindex/env@0.1.30)(hono@4.8.12)(p-retry@6.2.1)(zod-to-json-schema@3.24.6(zod@4.0.14))(zod@4.0.14)
       '@types/lodash': 4.17.20
       '@types/node': 24.1.0
       lodash: 4.17.21
@@ -1064,7 +1094,7 @@ snapshots:
 
   node-gyp-build@4.8.4: {}
 
-  openai@4.104.0(zod@3.25.76):
+  openai@4.104.0(zod@4.0.14):
     dependencies:
       '@types/node': 18.19.121
       '@types/node-fetch': 2.6.13
@@ -1074,7 +1104,7 @@ snapshots:
       formdata-node: 4.4.1
       node-fetch: 2.7.0
     optionalDependencies:
-      zod: 3.25.76
+      zod: 4.0.14
     transitivePeerDependencies:
       - encoding
 
@@ -1140,4 +1170,10 @@ snapshots:
     dependencies:
       zod: 3.25.76
 
+  zod-to-json-schema@3.24.6(zod@4.0.14):
+    dependencies:
+      zod: 4.0.14
+
   zod@3.25.76: {}
+
+  zod@4.0.14: {}
