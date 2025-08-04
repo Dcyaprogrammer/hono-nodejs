@@ -2,8 +2,7 @@ import 'dotenv/config'
 import {deepseek} from "@llamaindex/deepseek";
 import {agent} from "@llamaindex/workflow";
 import {tool} from "llamaindex";
-import {QueryFusionRetriever} from "@llamaindex/core/retriever";
-import {z} from "zod";
+import {} from "@llamaindex/core/vector-store"
 
 // 检查环境变量
 if (!process.env.DEEPSEEK_API_KEY) {
