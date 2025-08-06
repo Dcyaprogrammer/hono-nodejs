@@ -1,6 +1,7 @@
 # Basic Structure
+
 ```mermaid
-graph LR;
+flowchart LR;
 A[User] --> B[API];
 B --> C[文档管理];
 B --> D[检索];
@@ -13,6 +14,25 @@ E --> H[DataBase]
 G --> H
 
 ```
+# workflow
+
+```mermaid
+flowchart TD
+    A[用户上传PDF] --> B[保存到S3]
+    B --> C[解析文档]
+    C --> D[分块处理]
+    D --> E[生成向量]
+    E --> F[存储块到ES]
+    C --> G[存储元数据到PostgreSQL]
+    
+    H[用户提问] --> I[生成查询向量]
+    I --> J[ES向量检索]
+    J --> K[返回相关块]
+    K --> L[组装Prompt]
+    L --> M[LLM生成答案]
+    M --> N[返回答案+文档定位]
+
+```
 
 # 文档管理
 
@@ -20,7 +40,7 @@ G --> H
 
     doc_id : string; 
 
-    filename : string;
+    file_path: string;
 
     upload_time : Date;
 
@@ -51,21 +71,20 @@ G --> H
 
 
 ## Storage
-### chunck
+### chunck(vector database)
 
-{
 
-"text": string
+    "text": string
 
-"embedding": vector
+    "embedding": vector
 
-"metadata": dict
+    "metadata": dict
 
     {
         "chunk_id": string
 
         "doc_id": string
-        
+
         "page_number": int
 
         "start_line": int
@@ -86,6 +105,14 @@ G --> H
 
     }
 
-}
+### document(object + relational database)
+
+    "doc_id": string; 
+
+    "file_path": string;
+
+    "upload_time": Date;
+
+    "custom_metadata": {[key: string]: string | number};
 
 
