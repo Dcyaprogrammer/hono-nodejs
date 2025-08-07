@@ -1,0 +1,1615 @@
+{
+	"info": {
+		"_postman_id": "cc2c9882-91fb-4a67-9d01-52da94014463",
+		"name": "财报知识库API",
+		"description": "财报文档管理与检索系统API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47391649",
+		"_collection_link": "https://dujustin6-3067624.postman.co/workspace/d662f8c7-8e06-4ffb-8a7f-b59af1aa3e15/collection/47391649-cc2c9882-91fb-4a67-9d01-52da94014463?action=share&source=collection_link&creator=47391649"
+	},
+	"item": [
+		{
+			"name": "knowledge-bases",
+			"item": [
+				{
+					"name": "{kb_id}",
+					"item": [
+						{
+							"name": "documents",
+							"item": [
+								{
+									"name": "{doc_id}",
+									"item": [
+										{
+											"name": "embedding-status",
+											"item": [
+												{
+													"name": "获取文档嵌入状态（进度）",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/embedding-status",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"knowledge-bases",
+																":kb_id",
+																"documents",
+																":doc_id",
+																"embedding-status"
+															],
+															"variable": [
+																{
+																	"key": "kb_id",
+																	"value": "string",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "doc_id",
+																	"value": "string",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "嵌入状态信息",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/embedding-status",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"knowledge-bases",
+																		":kb_id",
+																		"documents",
+																		":doc_id",
+																		"embedding-status"
+																	],
+																	"variable": [
+																		{
+																			"key": "kb_id"
+																		},
+																		{
+																			"key": "doc_id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"status\": \"processing\",\n  \"progress\": 7592,\n  \"segments_embedded\": 3430,\n  \"total_segments\": 8751\n}"
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "segments",
+											"item": [
+												{
+													"name": "{segment_id}",
+													"item": [
+														{
+															"name": "更新文档分段",
+															"request": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"text\": \"string\",\n  \"metadata\": {}\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/segments/:segment_id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"knowledge-bases",
+																		":kb_id",
+																		"documents",
+																		":doc_id",
+																		"segments",
+																		":segment_id"
+																	],
+																	"variable": [
+																		{
+																			"key": "kb_id",
+																			"value": "string",
+																			"description": "(Required) "
+																		},
+																		{
+																			"key": "doc_id",
+																			"value": "string",
+																			"description": "(Required) "
+																		},
+																		{
+																			"key": "segment_id",
+																			"value": "string",
+																			"description": "(Required) "
+																		}
+																	]
+																}
+															},
+															"response": [
+																{
+																	"name": "分段更新成功",
+																	"originalRequest": {
+																		"method": "PUT",
+																		"header": [
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"text\": \"string\",\n  \"metadata\": {}\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/segments/:segment_id",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"knowledge-bases",
+																				":kb_id",
+																				"documents",
+																				":doc_id",
+																				"segments",
+																				":segment_id"
+																			],
+																			"variable": [
+																				{
+																					"key": "kb_id"
+																				},
+																				{
+																					"key": "doc_id"
+																				},
+																				{
+																					"key": "segment_id"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "text",
+																	"header": [],
+																	"cookie": [],
+																	"body": ""
+																}
+															]
+														},
+														{
+															"name": "删除文档分段",
+															"request": {
+																"method": "DELETE",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/segments/:segment_id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"knowledge-bases",
+																		":kb_id",
+																		"documents",
+																		":doc_id",
+																		"segments",
+																		":segment_id"
+																	],
+																	"variable": [
+																		{
+																			"key": "kb_id",
+																			"value": "string",
+																			"description": "(Required) "
+																		},
+																		{
+																			"key": "doc_id",
+																			"value": "string",
+																			"description": "(Required) "
+																		},
+																		{
+																			"key": "segment_id",
+																			"value": "string",
+																			"description": "(Required) "
+																		}
+																	]
+																}
+															},
+															"response": [
+																{
+																	"name": "分段删除成功",
+																	"originalRequest": {
+																		"method": "DELETE",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/segments/:segment_id",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"knowledge-bases",
+																				":kb_id",
+																				"documents",
+																				":doc_id",
+																				"segments",
+																				":segment_id"
+																			],
+																			"variable": [
+																				{
+																					"key": "kb_id"
+																				},
+																				{
+																					"key": "doc_id"
+																				},
+																				{
+																					"key": "segment_id"
+																				}
+																			]
+																		}
+																	},
+																	"status": "No Content",
+																	"code": 204,
+																	"_postman_previewlanguage": "text",
+																	"header": [],
+																	"cookie": [],
+																	"body": ""
+																}
+															]
+														}
+													]
+												},
+												{
+													"name": "新增分段",
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"text\": \"string\",\n  \"page\": 6125,\n  \"start_line\": 9195,\n  \"end_line\": 1316,\n  \"metadata\": {}\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/segments",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"knowledge-bases",
+																":kb_id",
+																"documents",
+																":doc_id",
+																"segments"
+															],
+															"variable": [
+																{
+																	"key": "kb_id",
+																	"value": "string",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "doc_id",
+																	"value": "string",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "分段创建成功",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"text\": \"string\",\n  \"page\": 6125,\n  \"start_line\": 9195,\n  \"end_line\": 1316,\n  \"metadata\": {}\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/segments",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"knowledge-bases",
+																		":kb_id",
+																		"documents",
+																		":doc_id",
+																		"segments"
+																	],
+																	"variable": [
+																		{
+																			"key": "kb_id"
+																		},
+																		{
+																			"key": "doc_id"
+																		}
+																	]
+																}
+															},
+															"status": "Created",
+															"code": 201,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"segment_id\": \"string\"\n}"
+														}
+													]
+												},
+												{
+													"name": "查询文档分段",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/segments",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"knowledge-bases",
+																":kb_id",
+																"documents",
+																":doc_id",
+																"segments"
+															],
+															"variable": [
+																{
+																	"key": "kb_id",
+																	"value": "string",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "doc_id",
+																	"value": "string",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "分段列表",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/segments",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"knowledge-bases",
+																		":kb_id",
+																		"documents",
+																		":doc_id",
+																		"segments"
+																	],
+																	"variable": [
+																		{
+																			"key": "kb_id"
+																		},
+																		{
+																			"key": "doc_id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "[\n  {\n    \"id\": \"string\",\n    \"text\": \"string\",\n    \"page\": 164,\n    \"start_line\": 9024,\n    \"end_line\": 2424,\n    \"created_at\": \"2009-04-22T07:24:30.600Z\",\n    \"metadata\": {\n      \"key_0\": 1288\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"text\": \"string\",\n    \"page\": 7580,\n    \"start_line\": 832,\n    \"end_line\": 5076,\n    \"created_at\": \"1957-08-09T10:19:10.666Z\",\n    \"metadata\": {\n      \"key_0\": true,\n      \"key_1\": true,\n      \"key_2\": 7551\n    }\n  }\n]"
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "metadata",
+											"item": [
+												{
+													"name": "修改文档的元数据（赋值）",
+													"request": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"key_0\": false\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/metadata",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"knowledge-bases",
+																":kb_id",
+																"documents",
+																":doc_id",
+																"metadata"
+															],
+															"variable": [
+																{
+																	"key": "kb_id",
+																	"value": "string",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "doc_id",
+																	"value": "string",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "元数据更新成功",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"key_0\": false\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id/metadata",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"knowledge-bases",
+																		":kb_id",
+																		"documents",
+																		":doc_id",
+																		"metadata"
+																	],
+																	"variable": [
+																		{
+																			"key": "kb_id"
+																		},
+																		{
+																			"key": "doc_id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "更新文档（文本或文件）",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "value",
+															"value": "reference #/components/schemas/DocumentUpdateInput not found in the OpenAPI spec",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"knowledge-bases",
+														":kb_id",
+														"documents",
+														":doc_id"
+													],
+													"variable": [
+														{
+															"key": "kb_id",
+															"value": "string",
+															"description": "(Required) "
+														},
+														{
+															"key": "doc_id",
+															"value": "string",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "文档更新已接受",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "multipart/form-data"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "formdata",
+															"formdata": [
+																{
+																	"key": "value",
+																	"value": "reference #/components/schemas/DocumentUpdateInput not found in the OpenAPI spec",
+																	"type": "text"
+																}
+															]
+														},
+														"url": {
+															"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"knowledge-bases",
+																":kb_id",
+																"documents",
+																":doc_id"
+															],
+															"variable": [
+																{
+																	"key": "kb_id"
+																},
+																{
+																	"key": "doc_id"
+																}
+															]
+														}
+													},
+													"status": "Accepted",
+													"code": 202,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"processing_id\": \"string\",\n  \"status_url\": \"https://Fgm.dswlKXfOtG9mUpgdNfRT.VpSFEIcTps+bpGp5UOazV1gl,uDDMREpw8qi7cVH.nk\"\n}"
+												}
+											]
+										},
+										{
+											"name": "删除文档",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"knowledge-bases",
+														":kb_id",
+														"documents",
+														":doc_id"
+													],
+													"variable": [
+														{
+															"key": "kb_id",
+															"value": "string",
+															"description": "(Required) "
+														},
+														{
+															"key": "doc_id",
+															"value": "string",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "文档删除成功",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents/:doc_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"knowledge-bases",
+																":kb_id",
+																"documents",
+																":doc_id"
+															],
+															"variable": [
+																{
+																	"key": "kb_id"
+																},
+																{
+																	"key": "doc_id"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "创建文档（文本或文件）",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "text",
+													"value": "string",
+													"description": "文档文本内容（与file二选一）",
+													"type": "text"
+												},
+												{
+													"key": "file",
+													"description": "文档文件（PDF/DOCX等）",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "metadata",
+													"value": "[object Object]",
+													"description": "文档元数据（KV字典）",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"knowledge-bases",
+												":kb_id",
+												"documents"
+											],
+											"variable": [
+												{
+													"key": "kb_id",
+													"value": "string",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "通过文本或文件创建文档\n- 文本方式：使用text字段\n- 文件方式：使用file字段（multipart/form-data）\n"
+									},
+									"response": [
+										{
+											"name": "文档创建已接受",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "multipart/form-data"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "text",
+															"value": "string",
+															"description": "文档文本内容（与file二选一）",
+															"type": "text"
+														},
+														{
+															"key": "file",
+															"description": "文档文件（PDF/DOCX等）",
+															"type": "file",
+															"src": []
+														},
+														{
+															"key": "metadata",
+															"value": "[object Object]",
+															"description": "文档元数据（KV字典）",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"knowledge-bases",
+														":kb_id",
+														"documents"
+													],
+													"variable": [
+														{
+															"key": "kb_id"
+														}
+													]
+												}
+											},
+											"status": "Accepted",
+											"code": 202,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"document_id\": \"string\",\n  \"processing_id\": \"string\"\n}"
+										}
+									]
+								},
+								{
+									"name": "知识库文档列表",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"knowledge-bases",
+												":kb_id",
+												"documents"
+											],
+											"variable": [
+												{
+													"key": "kb_id",
+													"value": "string",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "成功获取文档列表",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/knowledge-bases/:kb_id/documents",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"knowledge-bases",
+														":kb_id",
+														"documents"
+													],
+													"variable": [
+														{
+															"key": "kb_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"status\": \"embedded\",\n    \"created_at\": \"1982-01-24T12:12:26.212Z\",\n    \"metadata\": {\n      \"key_0\": 1892,\n      \"key_1\": 1838\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"status\": \"embedded\",\n    \"created_at\": \"1960-10-01T20:35:36.558Z\",\n    \"metadata\": {\n      \"key_0\": 3927,\n      \"key_1\": 5495.0685099546145,\n      \"key_2\": true\n    }\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "metadata",
+							"item": [
+								{
+									"name": "{field_id}",
+									"item": [
+										{
+											"name": "status",
+											"item": [
+												{
+													"name": "启用/禁用知识库元数据中的内置字段",
+													"request": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"enabled\": false\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/knowledge-bases/:kb_id/metadata/:field_id/status",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"knowledge-bases",
+																":kb_id",
+																"metadata",
+																":field_id",
+																"status"
+															],
+															"variable": [
+																{
+																	"key": "kb_id",
+																	"value": "string",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "field_id",
+																	"value": "string",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "状态更新成功",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"enabled\": false\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/knowledge-bases/:kb_id/metadata/:field_id/status",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"knowledge-bases",
+																		":kb_id",
+																		"metadata",
+																		":field_id",
+																		"status"
+																	],
+																	"variable": [
+																		{
+																			"key": "kb_id"
+																		},
+																		{
+																			"key": "field_id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "更新知识库元数据字段",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"field_name\": \"string\",\n  \"field_type\": \"number\",\n  \"is_required\": true\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/knowledge-bases/:kb_id/metadata/:field_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"knowledge-bases",
+														":kb_id",
+														"metadata",
+														":field_id"
+													],
+													"variable": [
+														{
+															"key": "kb_id",
+															"value": "string",
+															"description": "(Required) "
+														},
+														{
+															"key": "field_id",
+															"value": "string",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "字段更新成功",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"field_name\": \"string\",\n  \"field_type\": \"number\",\n  \"is_required\": true\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/knowledge-bases/:kb_id/metadata/:field_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"knowledge-bases",
+																":kb_id",
+																"metadata",
+																":field_id"
+															],
+															"variable": [
+																{
+																	"key": "kb_id"
+																},
+																{
+																	"key": "field_id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "删除知识库元数据字段",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/knowledge-bases/:kb_id/metadata/:field_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"knowledge-bases",
+														":kb_id",
+														"metadata",
+														":field_id"
+													],
+													"variable": [
+														{
+															"key": "kb_id",
+															"value": "string",
+															"description": "(Required) "
+														},
+														{
+															"key": "field_id",
+															"value": "string",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "字段删除成功",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/knowledge-bases/:kb_id/metadata/:field_id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"knowledge-bases",
+																":kb_id",
+																"metadata",
+																":field_id"
+															],
+															"variable": [
+																{
+																	"key": "kb_id"
+																},
+																{
+																	"key": "field_id"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "新增知识库元数据字段",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"field_name\": \"string\",\n  \"field_type\": \"date\",\n  \"is_required\": false\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/knowledge-bases/:kb_id/metadata",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"knowledge-bases",
+												":kb_id",
+												"metadata"
+											],
+											"variable": [
+												{
+													"key": "kb_id",
+													"value": "string",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "字段创建成功",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"field_name\": \"string\",\n  \"field_type\": \"date\",\n  \"is_required\": false\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/knowledge-bases/:kb_id/metadata",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"knowledge-bases",
+														":kb_id",
+														"metadata"
+													],
+													"variable": [
+														{
+															"key": "kb_id"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "知识库的元数据字段列表",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/knowledge-bases/:kb_id/metadata",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"knowledge-bases",
+												":kb_id",
+												"metadata"
+											],
+											"variable": [
+												{
+													"key": "kb_id",
+													"value": "string",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "元数据字段列表",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/knowledge-bases/:kb_id/metadata",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"knowledge-bases",
+														":kb_id",
+														"metadata"
+													],
+													"variable": [
+														{
+															"key": "kb_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"is_required\": true,\n    \"is_builtin\": false,\n    \"enabled\": true\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"is_required\": false,\n    \"is_builtin\": true,\n    \"enabled\": false\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "删除知识库",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/knowledge-bases/:kb_id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"knowledge-bases",
+										":kb_id"
+									],
+									"variable": [
+										{
+											"key": "kb_id",
+											"value": "string",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "知识库删除成功",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/knowledge-bases/:kb_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"knowledge-bases",
+												":kb_id"
+											],
+											"variable": [
+												{
+													"key": "kb_id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "创建空知识库",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/knowledge-bases",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"knowledge-bases"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "知识库创建成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/knowledge-bases",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"knowledge-bases"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"created_at\": \"1994-03-25T07:24:52.104Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "知识库列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/knowledge-bases",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"knowledge-bases"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "成功获取知识库列表",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/knowledge-bases",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"knowledge-bases"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"created_at\": \"2022-02-14T08:14:56.132Z\",\n    \"document_count\": 9274\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"created_at\": \"1967-12-02T09:22:30.632Z\",\n    \"document_count\": 2084\n  }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.financial-knowledge.com/v1"
+		}
+	]
+}
